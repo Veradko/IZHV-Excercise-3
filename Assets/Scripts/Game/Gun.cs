@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 /// <summary>
@@ -200,11 +201,29 @@ public class Gun : MonoBehaviour
          *  - Number / spread of shotgun bullets : shotgunBullets, shotgunSpread
          * Implement both single shot and shotgun (swap by pressing <SPACE> by default)
          */
-        
-        SpawnBullet(
-            new Vector3{ x = 0.0f, y = 0.0f, z = 0.0f }, 
-            Quaternion.Euler(0.0f, 0.0f, 0.0f)
-        );
+        Quaternion baseRot = director.rotation;
+
+        Vector3 basePos = director.position;
+
+        // normal gun
+        if (!shotgun)
+        {
+            SpawnBullet(basePos, baseRot);
+            return;
+        }
+
+        // shotgun
+        float halfSpread = shotgunSpread * 0.5f;
+        for (int i = 0; i < shotgunBullets; i++)
+        {
+            float t = (shotgunBullets == 1) ? 0f : (float)i / (shotgunBullets - 1);
+
+            float angle = Mathf.Lerp(-halfSpread, halfSpread, t);
+            Quaternion spreadRot = baseRot * Quaternion.Euler(0f, 0f, angle);
+
+            SpawnBullet(basePos, spreadRot);
+        }
+
     }
 
     /// <summary>
