@@ -1,10 +1,11 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
 
 // ReSharper disable InvalidXmlDocComment
@@ -122,6 +123,23 @@ public class Settings : MonoBehaviour
      *   can call through to the AddPlayer and RemovePlayer respectively.
      *   Do not forget to set the Joining Behavior and the Player Prefab!
      */
+    public void OnPlayerJoin(PlayerInput input)
+    {
+        AddPlayer(input.gameObject);
+
+        int index = GetPlayerIndex(input.gameObject);
+        var ui = PlayerUI(index);
+        if(ui != null)
+        {
+            ui.SetActive(true);
+            input.uiInputModule = ui.GetComponentInChildren < InputSystemUIInputModule > ();
+        }
+
+    }
+    public void OnPlayerLeft(PlayerInput input)
+    {
+        RemovePlayer(input.gameObject);
+    }
     
     /// <summary>
     /// Called when the script instance is first loaded.

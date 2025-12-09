@@ -121,6 +121,17 @@
                 },
                 {
                     "name": "",
+                    "id": "55ae4fb8-632d-4a74-b5e0-7725b49ec3f2",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad2",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "9e398846-71c4-4317-82b9-20d39697bbb6",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -137,6 +148,28 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "GP",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f8dbb20c-d8f7-4b0b-b801-33e1e0fe7ca8",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad2",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cf3cb3e1-cf0d-43d6-a522-a17bd63a0217",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad2",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -203,6 +236,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "GP",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c2c999a5-cc23-4caa-b333-b8ecc55ac3d8",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad2",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -341,6 +385,17 @@
                 },
                 {
                     "name": "",
+                    "id": "84ce1a86-7c20-45f0-a75f-3eb7ad519140",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad2",
+                    "action": "ToggleShotgun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "a1b8ccfd-10b6-474f-b9c1-a739e095feee",
                     "path": "<Keyboard>/c",
                     "interactions": "",
@@ -432,6 +487,17 @@
         {
             "name": "GP",
             "bindingGroup": "GP",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Gamepad2",
+            "bindingGroup": "Gamepad2",
             "devices": [
                 {
                     "devicePath": "<Gamepad>",
